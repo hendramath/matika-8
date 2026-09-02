@@ -1,1 +1,1820 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>MATIKA 8 - Hendra Sudrajat</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+    line-height:1.6;
+}
+
+header{
+    background:#2563eb;
+    color:white;
+    padding:28px 18px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+}
+
+header h1{
+    margin:0;
+    font-size:30px;
+}
+
+header p{
+    margin:5px 0;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h2,
+.card h3{
+    margin-top:0;
+}
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+}
+
+.topic{
+    border-radius:15px;
+    padding:20px;
+    background:#eff6ff;
+    border:2px solid #dbeafe;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.topic:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 14px rgba(0,0,0,.1);
+}
+
+.topic .icon{
+    font-size:35px;
+}
+
+.topic h3{
+    color:#1d4ed8;
+    margin:8px 0;
+}
+
+button{
+    border:none;
+    border-radius:10px;
+    padding:12px 18px;
+    font-size:15px;
+    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    margin:5px 3px;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.btn-secondary{
+    background:#64748b;
+}
+
+.btn-success{
+    background:#16a34a;
+}
+
+.btn-warning{
+    background:#f59e0b;
+}
+
+.btn-danger{
+    background:#dc2626;
+}
+
+.hidden{
+    display:none !important;
+}
+
+.material{
+    background:#f8fafc;
+    border-left:5px solid #2563eb;
+    padding:15px;
+    border-radius:10px;
+    margin:12px 0;
+}
+
+.contoh{
+    background:#eff6ff;
+    border:1px solid #bfdbfe;
+    padding:15px;
+    border-radius:10px;
+    margin:12px 0;
+}
+
+.info{
+    background:#e0f2fe;
+    border-left:5px solid #0284c7;
+    padding:14px;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+.success{
+    background:#dcfce7;
+    border-left:5px solid #16a34a;
+    padding:14px;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+.warning{
+    background:#fef3c7;
+    border-left:5px solid #f59e0b;
+    padding:14px;
+    border-radius:8px;
+    margin:12px 0;
+}
+
+.question{
+    font-size:21px;
+    font-weight:bold;
+    background:#f8fafc;
+    padding:20px;
+    border-radius:12px;
+    margin:15px 0;
+    text-align:center;
+}
+
+.options{
+    display:grid;
+    gap:10px;
+}
+
+.option{
+    width:100%;
+    background:white;
+    color:#172033;
+    border:2px solid #dbe3ef;
+    text-align:left;
+}
+
+.option:hover{
+    background:#eff6ff;
+    border-color:#2563eb;
+}
+
+.option.correct{
+    background:#dcfce7;
+    border-color:#16a34a;
+}
+
+.option.wrong{
+    background:#fee2e2;
+    border-color:#dc2626;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:9px;
+    margin:6px 0 12px;
+    font-size:15px;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#e2e8f0;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:#2563eb;
+    width:0%;
+    transition:.3s;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    background:#dbeafe;
+    color:#1d4ed8;
+    margin:3px;
+}
+
+.math{
+    font-size:23px;
+    text-align:center;
+    font-weight:bold;
+    margin:12px 0;
+}
+
+sup{
+    font-size:.7em;
+}
+
+.result{
+    text-align:center;
+    padding:25px;
+}
+
+.nilai{
+    font-size:55px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.footer{
+    text-align:center;
+    color:#64748b;
+    padding:30px 10px;
+}
+
+.timer{
+    font-weight:bold;
+    font-size:18px;
+    color:#dc2626;
+}
+
+hr{
+    border:none;
+    border-top:1px solid #e2e8f0;
+    margin:20px 0;
+}
+
+@media(max-width:600px){
+    header h1{
+        font-size:25px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .card{
+        padding:16px;
+    }
+
+    .question{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📘 MATIKA 8</h1>
+    <p>Belajar • Berlatih • Memahami</p>
+    <strong>Hendra Sudrajat, S.Pd.</strong>
+    <p>SMP Negeri 3 Sindangkerta</p>
+    <p>Kabupaten Bandung Barat</p>
+</header>
+
+<div class="container">
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+    <div class="card">
+        <h2>Selamat Datang di MATIKA 8 👋</h2>
+        <p>
+            Media belajar Matematika Kelas 8 untuk membantu memahami konsep,
+            berlatih soal, dan menguji kemampuan.
+        </p>
+
+        <div class="info">
+            Pilih materi yang ingin kamu pelajari.
+        </div>
+    </div>
+
+    <div class="topic-grid">
+
+        <div class="topic" onclick="buka('eksponen')">
+            <div class="icon">🔢</div>
+            <h3>Eksponen</h3>
+            <p>Memahami bilangan berpangkat dan sifat-sifatnya.</p>
+        </div>
+
+        <div class="topic" onclick="buka('pythagoras')">
+            <div class="icon">📐</div>
+            <h3>Teorema Pythagoras</h3>
+            <p>Hubungan sisi-sisi pada segitiga siku-siku.</p>
+        </div>
+
+        <div class="topic" onclick="buka('akar')">
+            <div class="icon">√</div>
+            <h3>Bentuk Akar</h3>
+            <p>Mengenal dan menyederhanakan bentuk akar.</p>
+        </div>
+
+        <div class="topic" onclick="buka('pldv')">
+            <div class="icon">🔤</div>
+            <h3>PLDV</h3>
+            <p>Persamaan Linear Dua Variabel.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EKSPONEN ================= -->
+
+<section id="eksponen" class="hidden">
+
+    <button class="btn-secondary" onclick="home()">← Kembali</button>
+
+    <div class="card">
+        <h2>🔢 Eksponen</h2>
+
+        <p>
+            Eksponen atau bilangan berpangkat digunakan untuk menyatakan
+            perkalian berulang dari suatu bilangan.
+        </p>
+
+        <div class="material">
+            <h3>1. Pengertian Eksponen</h3>
+
+            <p>
+                Bentuk:
+            </p>
+
+            <div class="math">
+                a<sup>n</sup>
+            </div>
+
+            <p>
+                disebut bilangan berpangkat, dengan <b>a</b> sebagai basis
+                dan <b>n</b> sebagai pangkat/eksponen.
+            </p>
+        </div>
+
+        <div class="contoh">
+            <b>Contoh:</b>
+
+            <div class="math">
+                2<sup>4</sup> = 2 × 2 × 2 × 2 = 16
+            </div>
+        </div>
+
+        <div class="material">
+            <h3>2. Perkalian Pangkat dengan Basis Sama</h3>
+
+            <div class="math">
+                a<sup>m</sup> × a<sup>n</sup>
+                = a<sup>m+n</sup>
+            </div>
+
+            <p>
+                Jika basisnya sama, pangkat dijumlahkan.
+            </p>
+        </div>
+
+        <div class="contoh">
+            <b>Contoh:</b>
+
+            <div class="math">
+                2<sup>3</sup> × 2<sup>4</sup>
+                = 2<sup>7</sup>
+                = 128
+            </div>
+        </div>
+
+        <div class="material">
+            <h3>3. Pembagian Pangkat dengan Basis Sama</h3>
+
+            <div class="math">
+                a<sup>m</sup> ÷ a<sup>n</sup>
+                = a<sup>m−n</sup>
+            </div>
+
+            <p>
+                Jika basisnya sama, pangkat dikurangkan.
+            </p>
+        </div>
+
+        <div class="contoh">
+            <b>Contoh:</b>
+
+            <div class="math">
+                3<sup>5</sup> ÷ 3<sup>2</sup>
+                = 3<sup>3</sup>
+                = 27
+            </div>
+        </div>
+
+        <div class="material">
+            <h3>4. Pangkat dari Pangkat</h3>
+
+            <div class="math">
+                (a<sup>m</sup>)<sup>n</sup>
+                = a<sup>m×n</sup>
+            </div>
+        </div>
+
+        <div class="contoh">
+            <b>Contoh:</b>
+
+            <div class="math">
+                (2<sup>3</sup>)<sup>2</sup>
+                = 2<sup>6</sup>
+                = 64
+            </div>
+        </div>
+
+        <div class="material">
+            <h3>5. Pangkat Nol</h3>
+
+            <div class="math">
+                a<sup>0</sup> = 1
+            </div>
+
+            <p>
+                untuk a ≠ 0.
+            </p>
+        </div>
+
+        <div class="contoh">
+            <b>Contoh:</b>
+
+            <div class="math">
+                7<sup>0</sup> = 1
+            </div>
+        </div>
+
+        <div class="material">
+            <h3>6. Pangkat Negatif</h3>
+
+            <div class="math">
+                a<sup>−n</sup> = 1 / a<sup>n</sup>
+            </div>
+        </div>
+
+        <div class="contoh">
+            <b>Contoh:</b>
+
+            <div class="math">
+                2<sup>−3</sup> = 1 / 2<sup>3</sup> = 1/8
+            </div>
+        </div>
+
+        <div class="material">
+            <h3>7. Pangkat dari Perkalian</h3>
+
+            <div class="math">
+                (ab)<sup>n</sup>
+                = a<sup>n</sup>b<sup>n</sup>
+            </div>
+        </div>
+
+        <div class="contoh">
+            <b>Contoh:</b>
+
+            <div class="math">
+                (2 × 3)<sup>2</sup>
+                = 2<sup>2</sup> × 3<sup>2</sup>
+                = 36
+            </div>
+        </div>
+
+        <div class="material">
+            <h3>8. Penerapan dalam Kehidupan</h3>
+
+            <p>
+                Eksponen banyak digunakan untuk menyatakan pertumbuhan,
+                luas dan volume, perkalian berulang, serta berbagai bentuk
+                perhitungan dalam ilmu pengetahuan.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- LATIHAN -->
+
+    <div class="card">
+        <h2>🎯 Latihan Eksponen</h2>
+
+        <p>
+            Kerjakan soal secara acak. Latihan tidak dibatasi waktu.
+        </p>
+
+        <button onclick="mulaiLatihanEksponen()">
+            Mulai Latihan
+        </button>
+
+        <div id="latihanEksponen" class="hidden">
+
+            <div id="latihanProgress"></div>
+
+            <div class="question" id="latihanQuestion"></div>
+
+            <div class="options" id="latihanOptions"></div>
+
+            <div id="latihanFeedback"></div>
+
+            <button id="nextLatihan"
+                    class="btn-success hidden"
+                    onclick="soalLatihanBerikutnya()">
+                Soal Berikutnya →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TES -->
+
+    <div class="card">
+
+        <h2>📝 Tes Kemampuan</h2>
+
+        <p>
+            Tes terdiri dari <b>20 soal</b>:
+        </p>
+
+        <span class="badge">5 Mudah</span>
+        <span class="badge">10 Sedang</span>
+        <span class="badge">5 Sulit</span>
+
+        <div class="warning">
+            Pastikan nama dan kelas sudah benar sebelum memulai tes.
+        </div>
+
+        <button onclick="bukaFormTes()">
+            Mulai Tes Kemampuan
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FORM TES ================= -->
+
+<section id="formTes" class="hidden">
+
+    <button class="btn-secondary" onclick="buka('eksponen')">
+        ← Kembali
+    </button>
+
+    <div class="card">
+
+        <h2>📝 Data Peserta Tes</h2>
+
+        <label>Nama Lengkap</label>
+        <input type="text" id="namaSiswa" placeholder="Masukkan nama">
+
+        <label>Kelas</label>
+
+        <select id="kelasSiswa">
+            <option value="">Pilih kelas</option>
+            <option>8A</option>
+            <option>8B</option>
+            <option>8C</option>
+            <option>8D</option>
+            <option>8E</option>
+            <option>8F</option>
+        </select>
+
+        <button onclick="mulaiTes()">
+            Mulai Tes
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HALAMAN TES ================= -->
+
+<section id="halamanTes" class="hidden">
+
+    <div class="card">
+
+        <h2>📝 Tes Kemampuan Eksponen</h2>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span id="nomorTes">Soal 1 dari 20</span>
+            <span class="timer" id="timer">40:00</span>
+        </div>
+
+        <br>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressTes"></div>
+        </div>
+
+        <div class="question" id="questionTes"></div>
+
+        <div class="options" id="optionsTes"></div>
+
+        <button id="nextTes"
+                class="btn-success hidden"
+                onclick="jawabTesBerikutnya()">
+            Berikutnya →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HASIL ================= -->
+
+<section id="hasilTes" class="hidden">
+
+    <div class="card result">
+
+        <h2>🎉 Hasil Tes</h2>
+
+        <p id="hasilNama"></p>
+        <p id="hasilKelas"></p>
+
+        <div class="nilai" id="nilaiTes">0</div>
+
+        <p>
+            Nilai Tes
+        </p>
+
+        <hr>
+
+        <p id="jumlahBenar"></p>
+
+        <div id="pesanHasil"></div>
+
+        <button onclick="buka('eksponen')">
+            ← Kembali ke Eksponen
+        </button>
+
+        <button class="btn-success" onclick="location.reload()">
+            Ulangi
+        </button>
+
+        <div id="statusKirim"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PYTHAGORAS ================= -->
+
+<section id="pythagoras" class="hidden">
+
+    <button class="btn-secondary" onclick="home()">← Kembali</button>
+
+    <div class="card">
+
+        <h2>📐 Teorema Pythagoras</h2>
+
+        <div class="info">
+            Materi Pythagoras sedang disiapkan dan akan menjadi bagian
+            berikutnya dalam MATIKA 8.
+        </div>
+
+        <h3>Konsep Utama</h3>
+
+        <p>
+            Pada segitiga siku-siku berlaku hubungan:
+        </p>
+
+        <div class="math">
+            a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>
+        </div>
+
+        <p>
+            dengan <b>c</b> merupakan sisi miring atau hipotenusa.
+        </p>
+
+        <div class="warning">
+            Latihan random dan Tes Kemampuan Pythagoras akan ditambahkan
+            setelah modul Eksponen selesai.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BENTUK AKAR ================= -->
+
+<section id="akar" class="hidden">
+
+    <button class="btn-secondary" onclick="home()">← Kembali</button>
+
+    <div class="card">
+
+        <h2>√ Bentuk Akar</h2>
+
+        <div class="info">
+            Materi Bentuk Akar akan dikembangkan pada tahap berikutnya.
+        </div>
+
+        <h3>Konsep Awal</h3>
+
+        <p>
+            Bentuk akar merupakan bentuk bilangan yang memuat tanda akar
+            dan tidak dapat dinyatakan sebagai bilangan rasional sederhana.
+        </p>
+
+        <div class="contoh">
+            <div class="math">
+                √2, √3, √5
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PLDV ================= -->
+
+<section id="pldv" class="hidden">
+
+    <button class="btn-secondary" onclick="home()">← Kembali</button>
+
+    <div class="card">
+
+        <h2>🔤 Persamaan Linear Dua Variabel</h2>
+
+        <div class="info">
+            Materi PLDV akan dikembangkan setelah Eksponen,
+            Pythagoras, dan Bentuk Akar selesai.
+        </div>
+
+        <h3>Konsep Awal</h3>
+
+        <p>
+            Persamaan linear dua variabel adalah persamaan yang mempunyai
+            dua variabel dengan pangkat tertinggi masing-masing variabel
+            adalah satu.
+        </p>
+
+        <div class="contoh">
+            <div class="math">
+                2x + 3y = 12
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="footer">
+    <p>MATIKA 8 • Hendra Sudrajat, S.Pd.</p>
+    <p>SMP Negeri 3 Sindangkerta</p>
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   KONFIGURASI
+========================================================= */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbw9rwAPmIswQ0jxF9AO7AEsECdY3Cn9EBThaQNlxVqS_QNhOB2rhRJzBuhFpdMZeiox/exec";
+
+
+/* =========================================================
+   NAVIGASI
+========================================================= */
+
+const halaman = [
+    "home",
+    "eksponen",
+    "pythagoras",
+    "akar",
+    "pldv",
+    "formTes",
+    "halamanTes",
+    "hasilTes"
+];
+
+function sembunyikanSemua(){
+
+    halaman.forEach(id=>{
+        const el=document.getElementById(id);
+
+        if(el){
+            el.classList.add("hidden");
+        }
+    });
+}
+
+function buka(id){
+
+    sembunyikanSemua();
+
+    const el=document.getElementById(id);
+
+    if(el){
+        el.classList.remove("hidden");
+    }
+
+    window.scrollTo(0,0);
+}
+
+function home(){
+    buka("home");
+}
+
+
+/* =========================================================
+   RANDOM
+========================================================= */
+
+function acak(arr){
+
+    return [...arr].sort(
+        ()=>Math.random()-0.5
+    );
+
+}
+
+function angkaAcak(min,max){
+
+    return Math.floor(
+        Math.random()*(max-min+1)
+    )+min;
+
+}
+
+
+/* =========================================================
+   BANK LATIHAN EKSPONEN
+========================================================= */
+
+const bankLatihanEksponen = [
+
+    {
+        soal:"Berapakah nilai 2<sup>3</sup>?",
+        pilihan:["6","8","9","12"],
+        jawaban:"8"
+    },
+
+    {
+        soal:"Berapakah nilai 3<sup>2</sup>?",
+        pilihan:["6","8","9","12"],
+        jawaban:"9"
+    },
+
+    {
+        soal:"Berapakah nilai 5<sup>2</sup>?",
+        pilihan:["10","20","25","30"],
+        jawaban:"25"
+    },
+
+    {
+        soal:"Berapakah nilai 2<sup>5</sup>?",
+        pilihan:["16","25","32","64"],
+        jawaban:"32"
+    },
+
+    {
+        soal:"Berapakah hasil 2<sup>3</sup> × 2<sup>2</sup>?",
+        pilihan:["16","24","32","64"],
+        jawaban:"32"
+    },
+
+    {
+        soal:"Berapakah hasil 3<sup>4</sup> ÷ 3<sup>2</sup>?",
+        pilihan:["3","6","9","12"],
+        jawaban:"9"
+    },
+
+    {
+        soal:"Berapakah hasil (2<sup>3</sup>)<sup>2</sup>?",
+        pilihan:["16","32","64","128"],
+        jawaban:"64"
+    },
+
+    {
+        soal:"Berapakah nilai 7<sup>0</sup>?",
+        pilihan:["0","1","7","70"],
+        jawaban:"1"
+    },
+
+    {
+        soal:"Berapakah nilai 2<sup>−2</sup>?",
+        pilihan:["−4","−2","1/2","1/4"],
+        jawaban:"1/4"
+    },
+
+    {
+        soal:"Berapakah hasil (2 × 3)<sup>2</sup>?",
+        pilihan:["12","18","36","64"],
+        jawaban:"36"
+    },
+
+    {
+        soal:"Sederhanakan 5<sup>3</sup> × 5<sup>2</sup>.",
+        pilihan:[
+            "5<sup>5</sup>",
+            "5<sup>6</sup>",
+            "10<sup>5</sup>",
+            "25<sup>5</sup>"
+        ],
+        jawaban:"5<sup>5</sup>"
+    },
+
+    {
+        soal:"Sederhanakan 7<sup>6</sup> ÷ 7<sup>3</sup>.",
+        pilihan:[
+            "7<sup>2</sup>",
+            "7<sup>3</sup>",
+            "7<sup>9</sup>",
+            "7<sup>18</sup>"
+        ],
+        jawaban:"7<sup>3</sup>"
+    },
+
+    {
+        soal:"Berapakah nilai (3<sup>2</sup>)<sup>3</sup>?",
+        pilihan:["81","243","729","2187"],
+        jawaban:"729"
+    },
+
+    {
+        soal:"Jika 2<sup>x</sup> = 32, maka x = ...",
+        pilihan:["3","4","5","6"],
+        jawaban:"5"
+    },
+
+    {
+        soal:"Jika 3<sup>x</sup> = 81, maka x = ...",
+        pilihan:["2","3","4","5"],
+        jawaban:"4"
+    },
+
+    {
+        soal:"Sederhanakan (4<sup>2</sup>)<sup>3</sup>.",
+        pilihan:[
+            "4<sup>5</sup>",
+            "4<sup>6</sup>",
+            "8<sup>6</sup>",
+            "16<sup>3</sup>"
+        ],
+        jawaban:"4<sup>6</sup>"
+    },
+
+    {
+        soal:"Berapakah nilai 10<sup>3</sup>?",
+        pilihan:["100","300","1000","3000"],
+        jawaban:"1000"
+    },
+
+    {
+        soal:"Berapakah nilai 4<sup>3</sup>?",
+        pilihan:["12","16","32","64"],
+        jawaban:"64"
+    },
+
+    {
+        soal:"Hasil dari 6<sup>2</sup> × 6<sup>1</sup> adalah ...",
+        pilihan:[
+            "6<sup>1</sup>",
+            "6<sup>2</sup>",
+            "6<sup>3</sup>",
+            "6<sup>4</sup>"
+        ],
+        jawaban:"6<sup>3</sup>"
+    },
+
+    {
+        soal:"Hasil dari 8<sup>5</sup> ÷ 8<sup>2</sup> adalah ...",
+        pilihan:[
+            "8<sup>2</sup>",
+            "8<sup>3</sup>",
+            "8<sup>7</sup>",
+            "8<sup>10</sup>"
+        ],
+        jawaban:"8<sup>3</sup>"
+    }
+
+];
+
+
+/* =========================================================
+   LATIHAN
+========================================================= */
+
+let latihanSoal=[];
+let latihanIndex=0;
+let latihanSkor=0;
+
+function mulaiLatihanEksponen(){
+
+    latihanSoal=acak(bankLatihanEksponen);
+
+    latihanIndex=0;
+    latihanSkor=0;
+
+    document
+        .getElementById("latihanEksponen")
+        .classList.remove("hidden");
+
+    tampilLatihan();
+
+}
+
+function tampilLatihan(){
+
+    const soal=latihanSoal[latihanIndex];
+
+    document.getElementById("latihanProgress").innerHTML=
+        `<b>Soal ${latihanIndex+1} dari ${latihanSoal.length}</b>
+         <div class="progress">
+            <div class="progress-bar"
+                 style="width:${((latihanIndex)/latihanSoal.length)*100}%">
+            </div>
+         </div>`;
+
+    document.getElementById("latihanQuestion").innerHTML=
+        soal.soal;
+
+    const options=
+        acak(soal.pilihan);
+
+    const box=
+        document.getElementById("latihanOptions");
+
+    box.innerHTML="";
+
+    options.forEach(pilihan=>{
+
+        const btn=document.createElement("button");
+
+        btn.className="option";
+        btn.innerHTML=pilihan;
+
+        btn.onclick=()=>cekLatihan(
+            btn,
+            pilihan,
+            soal.jawaban
+        );
+
+        box.appendChild(btn);
+
+    });
+
+    document.getElementById("latihanFeedback").innerHTML="";
+
+    document
+        .getElementById("nextLatihan")
+        .classList.add("hidden");
+}
+
+function cekLatihan(button,pilihan,jawaban){
+
+    const buttons=
+        document.querySelectorAll("#latihanOptions button");
+
+    buttons.forEach(btn=>{
+        btn.disabled=true;
+    });
+
+    if(pilihan===jawaban){
+
+        button.classList.add("correct");
+
+        latihanSkor++;
+
+        document.getElementById("latihanFeedback").innerHTML=
+            `<div class="success">
+                ✅ Benar!
+             </div>`;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        buttons.forEach(btn=>{
+
+            if(btn.innerHTML===jawaban){
+                btn.classList.add("correct");
+            }
+
+        });
+
+        document.getElementById("latihanFeedback").innerHTML=
+            `<div class="warning">
+                ❌ Belum tepat.
+                Jawaban benar: <b>${jawaban}</b>
+             </div>`;
+    }
+
+    document
+        .getElementById("nextLatihan")
+        .classList.remove("hidden");
+
+}
+
+function soalLatihanBerikutnya(){
+
+    latihanIndex++;
+
+    if(latihanIndex>=latihanSoal.length){
+
+        document.getElementById("latihanQuestion").innerHTML=
+            "🎉 Latihan selesai!";
+
+        document.getElementById("latihanOptions").innerHTML="";
+
+        document.getElementById("latihanFeedback").innerHTML=
+            `<div class="result">
+                <h3>Skor Latihan</h3>
+                <div class="nilai">
+                    ${Math.round(
+                        latihanSkor/latihanSoal.length*100
+                    )}
+                </div>
+                <p>
+                    Benar ${latihanSkor}
+                    dari ${latihanSoal.length} soal.
+                </p>
+             </div>`;
+
+        document
+            .getElementById("nextLatihan")
+            .classList.add("hidden");
+
+        return;
+    }
+
+    tampilLatihan();
+}
+
+
+/* =========================================================
+   BANK TES
+   5 MUDAH + 10 SEDANG + 5 SULIT
+========================================================= */
+
+const bankTesEksponen={
+
+mudah:[
+
+{
+soal:"Berapakah nilai 2<sup>3</sup>?",
+pilihan:["6","8","10","12"],
+jawaban:"8"
+},
+
+{
+soal:"Berapakah nilai 3<sup>2</sup>?",
+pilihan:["6","9","12","18"],
+jawaban:"9"
+},
+
+{
+soal:"Berapakah nilai 5<sup>2</sup>?",
+pilihan:["10","15","20","25"],
+jawaban:"25"
+},
+
+{
+soal:"Berapakah nilai 10<sup>2</sup>?",
+pilihan:["20","100","200","1000"],
+jawaban:"100"
+},
+
+{
+soal:"Berapakah nilai 4<sup>2</sup>?",
+pilihan:["8","12","16","20"],
+jawaban:"16"
+},
+
+{
+soal:"Berapakah nilai 2<sup>4</sup>?",
+pilihan:["8","12","16","24"],
+jawaban:"16"
+},
+
+{
+soal:"Berapakah nilai 3<sup>3</sup>?",
+pilihan:["9","18","27","36"],
+jawaban:"27"
+},
+
+{
+soal:"Berapakah nilai 7<sup>2</sup>?",
+pilihan:["14","21","49","56"],
+jawaban:"49"
+},
+
+{
+soal:"Berapakah nilai 6<sup>2</sup>?",
+pilihan:["12","24","36","48"],
+jawaban:"36"
+},
+
+{
+soal:"Berapakah nilai 8<sup>2</sup>?",
+pilihan:["16","32","64","128"],
+jawaban:"64"
+}
+
+],
+
+sedang:[
+
+{
+soal:"2<sup>3</sup> × 2<sup>4</sup> = ...",
+pilihan:[
+"2<sup>7</sup>",
+"2<sup>12</sup>",
+"4<sup>7</sup>",
+"4<sup>12</sup>"
+],
+jawaban:"2<sup>7</sup>"
+},
+
+{
+soal:"3<sup>5</sup> ÷ 3<sup>2</sup> = ...",
+pilihan:[
+"3<sup>2</sup>",
+"3<sup>3</sup>",
+"3<sup>7</sup>",
+"3<sup>10</sup>"
+],
+jawaban:"3<sup>3</sup>"
+},
+
+{
+soal:"(2<sup>3</sup>)<sup>2</sup> = ...",
+pilihan:[
+"2<sup>5</sup>",
+"2<sup>6</sup>",
+"2<sup>8</sup>",
+"2<sup>9</sup>"
+],
+jawaban:"2<sup>6</sup>"
+},
+
+{
+soal:"5<sup>2</sup> × 5<sup>3</sup> = ...",
+pilihan:[
+"5<sup>5</sup>",
+"5<sup>6</sup>",
+"5<sup>8</sup>",
+"10<sup>5</sup>"
+],
+jawaban:"5<sup>5</sup>"
+},
+
+{
+soal:"7<sup>6</sup> ÷ 7<sup>4</sup> = ...",
+pilihan:[
+"7<sup>2</sup>",
+"7<sup>3</sup>",
+"7<sup>10</sup>",
+"7<sup>24</sup>"
+],
+jawaban:"7<sup>2</sup>"
+},
+
+{
+soal:"Berapakah nilai 2<sup>0</sup>?",
+pilihan:["0","1","2","Tidak terdefinisi"],
+jawaban:"1"
+},
+
+{
+soal:"Jika 2<sup>x</sup> = 16, maka x = ...",
+pilihan:["2","3","4","5"],
+jawaban:"4"
+},
+
+{
+soal:"Jika 3<sup>x</sup> = 27, maka x = ...",
+pilihan:["2","3","4","5"],
+jawaban:"3"
+},
+
+{
+soal:"(3 × 2)<sup>2</sup> = ...",
+pilihan:["12","18","36","64"],
+jawaban:"36"
+},
+
+{
+soal:"(4<sup>2</sup>)<sup>2</sup> = ...",
+pilihan:[
+"4<sup>3</sup>",
+"4<sup>4</sup>",
+"4<sup>6</sup>",
+"4<sup>8</sup>"
+],
+jawaban:"4<sup>4</sup>"
+},
+
+{
+soal:"2<sup>5</sup> ÷ 2<sup>3</sup> = ...",
+pilihan:[
+"2<sup>2</sup>",
+"2<sup>3</sup>",
+"2<sup>8</sup>",
+"2<sup>15</sup>"
+],
+jawaban:"2<sup>2</sup>"
+},
+
+{
+soal:"6<sup>2</sup> × 6<sup>3</sup> = ...",
+pilihan:[
+"6<sup>5</sup>",
+"6<sup>6</sup>",
+"12<sup>5</sup>",
+"36<sup>5</sup>"
+],
+jawaban:"6<sup>5</sup>"
+}
+
+],
+
+sulit:[
+
+{
+soal:"Jika 2<sup>x+1</sup> = 32, maka nilai x adalah ...",
+pilihan:["3","4","5","6"],
+jawaban:"4"
+},
+
+{
+soal:"Jika 3<sup>x−1</sup> = 27, maka x adalah ...",
+pilihan:["2","3","4","5"],
+jawaban:"4"
+},
+
+{
+soal:"Nilai dari 2<sup>3</sup> × 2<sup>−1</sup> adalah ...",
+pilihan:["2","4","8","16"],
+jawaban:"4"
+},
+
+{
+soal:"Nilai dari 3<sup>4</sup> ÷ 3<sup>−1</sup> adalah ...",
+pilihan:["27","81","243","729"],
+jawaban:"243"
+},
+
+{
+soal:"Jika 5<sup>x</sup> × 5<sup>2</sup> = 5<sup>6</sup>, maka x = ...",
+pilihan:["2","3","4","5"],
+jawaban:"4"
+},
+
+{
+soal:"Sederhanakan (2<sup>3</sup> × 2<sup>2</sup>) ÷ 2<sup>4</sup>.",
+pilihan:[
+"2",
+"2<sup>2</sup>",
+"2<sup>3</sup>",
+"2<sup>4</sup>"
+],
+jawaban:"2"
+},
+
+{
+soal:"Jika 4<sup>x</sup> = 2<sup>6</sup>, maka x = ...",
+pilihan:["2","3","4","6"],
+jawaban:"3"
+},
+
+{
+soal:"Nilai dari (2<sup>2</sup>)<sup>3</sup> ÷ 2<sup>4</sup> adalah ...",
+pilihan:["2","4","8","16"],
+jawaban:"4"
+},
+
+{
+soal:"Jika 2<sup>x</sup> = 1/8, maka x = ...",
+pilihan:["−3","−2","2","3"],
+jawaban:"−3"
+},
+
+{
+soal:"Sederhanakan 3<sup>2</sup> × 3<sup>4</sup> ÷ 3<sup>3</sup>.",
+pilihan:[
+"3<sup>2</sup>",
+"3<sup>3</sup>",
+"3<sup>4</sup>",
+"3<sup>5</sup>"
+],
+jawaban:"3<sup>3</sup>"
+}
+
+]
+
+};
+
+
+/* =========================================================
+   MEMBUAT TES RANDOM
+========================================================= */
+
+function buatBankTes(bank){
+
+    return [
+
+        ...acak(bank.mudah).slice(0,5),
+
+        ...acak(bank.sedang).slice(0,10),
+
+        ...acak(bank.sulit).slice(0,5)
+
+    ];
+}
+
+
+/* =========================================================
+   TES
+========================================================= */
+
+let soalTes=[];
+let indexTes=0;
+let benarTes=0;
+
+let namaTes="";
+let kelasTes="";
+
+let waktuTes=40*60;
+let intervalTimer=null;
+
+function bukaFormTes(){
+
+    buka("formTes");
+
+}
+
+function mulaiTes(){
+
+    namaTes=
+        document.getElementById("namaSiswa").value.trim();
+
+    kelasTes=
+        document.getElementById("kelasSiswa").value;
+
+    if(!namaTes){
+
+        alert("Silakan masukkan nama terlebih dahulu.");
+
+        return;
+    }
+
+    if(!kelasTes){
+
+        alert("Silakan pilih kelas terlebih dahulu.");
+
+        return;
+    }
+
+    soalTes=
+        buatBankTes(bankTesEksponen);
+
+    soalTes=
+        acak(soalTes);
+
+    indexTes=0;
+    benarTes=0;
+
+    waktuTes=40*60;
+
+    buka("halamanTes");
+
+    mulaiTimer();
+
+    tampilSoalTes();
+
+}
+
+function mulaiTimer(){
+
+    clearInterval(intervalTimer);
+
+    intervalTimer=setInterval(()=>{
+
+        waktuTes--;
+
+        const menit=
+            Math.floor(waktuTes/60);
+
+        const detik=
+            waktuTes%60;
+
+        document.getElementById("timer").innerText=
+            `${String(menit).padStart(2,"0")}:${String(detik).padStart(2,"0")}`;
+
+        if(waktuTes<=0){
+
+            clearInterval(intervalTimer);
+
+            selesaiTes();
+
+        }
+
+    },1000);
+
+}
+
+function tampilSoalTes(){
+
+    const soal=soalTes[indexTes];
+
+    document.getElementById("nomorTes").innerText=
+        `Soal ${indexTes+1} dari ${soalTes.length}`;
+
+    document.getElementById("progressTes").style.width=
+        `${(indexTes/soalTes.length)*100}%`;
+
+    document.getElementById("questionTes").innerHTML=
+        soal.soal;
+
+    const box=
+        document.getElementById("optionsTes");
+
+    box.innerHTML="";
+
+    acak(soal.pilihan).forEach(pilihan=>{
+
+        const btn=document.createElement("button");
+
+        btn.className="option";
+
+        btn.innerHTML=pilihan;
+
+        btn.onclick=()=>pilihJawabanTes(
+            btn,
+            pilihan,
+            soal.jawaban
+        );
+
+        box.appendChild(btn);
+
+    });
+
+    document
+        .getElementById("nextTes")
+        .classList.add("hidden");
+
+}
+
+function pilihJawabanTes(
+    button,
+    pilihan,
+    jawaban
+){
+
+    const buttons=
+        document.querySelectorAll("#optionsTes button");
+
+    buttons.forEach(btn=>{
+        btn.disabled=true;
+    });
+
+    if(pilihan===jawaban){
+
+        button.classList.add("correct");
+
+        benarTes++;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        buttons.forEach(btn=>{
+
+            if(btn.innerHTML===jawaban){
+
+                btn.classList.add("correct");
+
+            }
+
+        });
+
+    }
+
+    document
+        .getElementById("nextTes")
+        .classList.remove("hidden");
+
+}
+
+function jawabTesBerikutnya(){
+
+    indexTes++;
+
+    if(indexTes>=soalTes.length){
+
+        selesaiTes();
+
+    }else{
+
+        tampilSoalTes();
+
+    }
+
+}
+
+
+/* =========================================================
+   SELESAI TES
+========================================================= */
+
+function selesaiTes(){
+
+    clearInterval(intervalTimer);
+
+    const nilai=
+        Math.round(
+            benarTes/soalTes.length*100
+        );
+
+    buka("hasilTes");
+
+    document.getElementById("hasilNama").innerHTML=
+        `<b>Nama:</b> ${namaTes}`;
+
+    document.getElementById("hasilKelas").innerHTML=
+        `<b>Kelas:</b> ${kelasTes}`;
+
+    document.getElementById("nilaiTes").innerText=
+        nilai;
+
+    document.getElementById("jumlahBenar").innerHTML=
+        `Jawaban benar: <b>${benarTes}</b>
+         dari <b>${soalTes.length}</b> soal`;
+
+    let pesan="";
+
+    if(nilai>=90){
+
+        pesan=
+        `<div class="success">
+            🌟 Sangat baik! Pertahankan kemampuanmu.
+         </div>`;
+
+    }else if(nilai>=75){
+
+        pesan=
+        `<div class="success">
+            👍 Bagus! Terus tingkatkan kemampuanmu.
+         </div>`;
+
+    }else if(nilai>=65){
+
+        pesan=
+        `<div class="warning">
+            💪 Cukup baik. Masih perlu latihan lagi.
+         </div>`;
+
+    }else{
+
+        pesan=
+        `<div class="warning">
+            📚 Jangan menyerah. Pelajari kembali materinya
+            dan coba lagi.
+         </div>`;
+
+    }
+
+    document.getElementById("pesanHasil").innerHTML=
+        pesan;
+
+    kirimHasil(
+        namaTes,
+        kelasTes,
+        benarTes,
+        soalTes.length,
+        nilai
+    );
+
+}
+
+
+/* =========================================================
+   KIRIM DATA GOOGLE SHEETS
+========================================================= */
+
+function kirimHasil(
+    nama,
+    kelas,
+    benar,
+    jumlah,
+    nilai
+){
+
+    const status=
+        document.getElementById("statusKirim");
+
+    status.innerHTML=
+        `<div class="info">
+            ⏳ Mengirim hasil tes...
+         </div>`;
+
+    const data={
+
+        nama:nama,
+
+        kelas:kelas,
+
+        materi:"Eksponen",
+
+        tingkat:"Kelas 8",
+
+        benar:benar,
+
+        jumlah:jumlah,
+
+        nilai:nilai,
+
+        waktu:new Date().toLocaleString("id-ID")
+
+    };
+
+    fetch(
+        SCRIPT_URL,
+        {
+            method:"POST",
+
+            mode:"no-cors",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(data)
+        }
+    )
+    .then(()=>{
+
+        status.innerHTML=
+            `<div class="success">
+                ✅ Hasil tes telah dikirim.
+             </div>`;
+
+    })
+    .catch(error=>{
+
+        console.error(error);
+
+        status.innerHTML=
+            `<div class="warning">
+                ⚠️ Hasil tes selesai,
+                tetapi pengiriman data mengalami kendala.
+             </div>`;
+
+    });
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+home();
+
+</script>
+
+</body>
+</html>
