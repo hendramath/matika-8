@@ -89,6 +89,7 @@ h3{
     margin:12px 0;
     border-radius:8px;
     font-size:19px;
+    line-height:1.7;
 }
 
 .info{
@@ -113,6 +114,57 @@ h3{
     padding:14px;
     border-radius:8px;
     margin:12px 0;
+}
+
+.diagram{
+    text-align:center;
+    background:#f8fafc;
+    border-radius:12px;
+    padding:15px;
+    margin:18px 0;
+    overflow:hidden;
+}
+
+.diagram svg{
+    max-width:100%;
+    height:auto;
+}
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:12px;
+    margin:15px 0;
+}
+
+.quick-card{
+    background:#f8fafc;
+    border:1px solid #dbe2ea;
+    border-radius:12px;
+    padding:15px;
+}
+
+.quick-card strong{
+    color:#1d4ed8;
+}
+
+.step{
+    display:flex;
+    gap:12px;
+    margin:10px 0;
+    align-items:flex-start;
+}
+
+.step-number{
+    min-width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
 }
 
 button{
@@ -171,11 +223,14 @@ input,select{
 .option.correct{
     background:#dcfce7;
     border-color:#16a34a;
+    color:#166534;
+    font-weight:bold;
 }
 
 .option.wrong{
     background:#fee2e2;
     border-color:#dc2626;
+    color:#991b1b;
 }
 
 .feedback{
@@ -196,6 +251,7 @@ input,select{
     height:100%;
     background:#2563eb;
     width:0%;
+    transition:.3s;
 }
 
 .timer{
@@ -238,7 +294,14 @@ input,select{
     margin-top:30px;
 }
 
+hr{
+    border:0;
+    border-top:1px solid #e2e8f0;
+    margin:25px 0;
+}
+
 @media(max-width:600px){
+
     header h1{
         font-size:25px;
     }
@@ -250,6 +313,16 @@ input,select{
     .math{
         font-size:17px;
     }
+
+    button{
+        width:100%;
+        margin:5px 0;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr;
+    }
+
 }
 </style>
 </head>
@@ -266,11 +339,14 @@ input,select{
 
 <div class="container">
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
+
 <section id="home" class="page">
 
     <div class="card">
+
         <h2>Selamat Datang di MATIKA 8 👋</h2>
+
         <p>
             Website pembelajaran Matematika Kelas 8 untuk membantu siswa
             memahami konsep, berlatih soal, dan mengukur kemampuan.
@@ -303,12 +379,14 @@ input,select{
             </div>
 
         </div>
+
     </div>
 
 </section>
 
 
-<!-- EKSPONEN -->
+<!-- ================= EKSPONEN ================= -->
+
 <section id="eksponen" class="page hidden">
 
     <div class="card">
@@ -429,7 +507,8 @@ input,select{
 </section>
 
 
-<!-- PYTHAGORAS -->
+<!-- ================= PYTHAGORAS ================= -->
+
 <section id="pythagoras" class="page hidden">
 
     <div class="card">
@@ -443,20 +522,103 @@ input,select{
             pada segitiga siku-siku.
         </div>
 
-        <h3>1. Pengertian</h3>
+        <h3>1. Mengenal Segitiga Siku-Siku</h3>
 
         <p>
-            Pada segitiga siku-siku, kuadrat sisi miring sama dengan
-            jumlah kuadrat kedua sisi siku-sikunya.
+            Segitiga siku-siku memiliki satu sudut sebesar
+            <strong>90°</strong>.
+        </p>
+
+        <!-- DIAGRAM -->
+
+        <div class="diagram">
+
+            <svg
+                viewBox="0 0 500 330"
+                width="500"
+                role="img"
+                aria-label="Diagram segitiga siku-siku dengan sisi a, b, dan c">
+
+                <polygon
+                    points="80,270 80,70 420,270"
+                    fill="#eff6ff"
+                    stroke="#2563eb"
+                    stroke-width="5"
+                />
+
+                <!-- tanda siku-siku -->
+
+                <polyline
+                    points="80,240 110,240 110,270"
+                    fill="none"
+                    stroke="#dc2626"
+                    stroke-width="4"
+                />
+
+                <!-- label a -->
+
+                <text
+                    x="55"
+                    y="175"
+                    font-size="24"
+                    font-weight="bold"
+                    fill="#1d4ed8">
+                    a
+                </text>
+
+                <!-- label b -->
+
+                <text
+                    x="245"
+                    y="305"
+                    font-size="24"
+                    font-weight="bold"
+                    fill="#1d4ed8">
+                    b
+                </text>
+
+                <!-- label c -->
+
+                <text
+                    x="265"
+                    y="145"
+                    font-size="24"
+                    font-weight="bold"
+                    fill="#1d4ed8">
+                    c
+                </text>
+
+                <!-- sudut 90 -->
+
+                <text
+                    x="120"
+                    y="225"
+                    font-size="20"
+                    font-weight="bold"
+                    fill="#dc2626">
+                    90°
+                </text>
+
+            </svg>
+
+            <p>
+                <strong>c</strong> adalah sisi miring atau hipotenusa,
+                yaitu sisi yang berada di depan sudut 90°.
+            </p>
+
+        </div>
+
+        <h3>2. Rumus Teorema Pythagoras</h3>
+
+        <p>
+            Pada segitiga siku-siku:
         </p>
 
         <div class="math">
             a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>
         </div>
 
-        <p>
-            Keterangan:
-        </p>
+        <p>Keterangan:</p>
 
         <ul>
             <li><strong>a</strong> = sisi siku-siku</li>
@@ -465,11 +627,46 @@ input,select{
         </ul>
 
         <div class="warning">
-            <strong>Ingat!</strong> Sisi miring adalah sisi yang berada
-            di depan sudut siku-siku dan merupakan sisi terpanjang.
+            <strong>Ingat!</strong>
+            Sisi miring adalah sisi terpanjang dan berada di depan
+            sudut siku-siku.
         </div>
 
-        <h3>2. Menentukan Sisi Miring</h3>
+        <h3>3. Cara Cepat Memilih Rumus</h3>
+
+        <div class="quick-grid">
+
+            <div class="quick-card">
+
+                <strong>Jika mencari sisi miring</strong>
+
+                <p>
+                    Dua sisi siku-siku diketahui.
+                </p>
+
+                <div class="math">
+                    c = √(a<sup>2</sup> + b<sup>2</sup>)
+                </div>
+
+            </div>
+
+            <div class="quick-card">
+
+                <strong>Jika mencari sisi siku-siku</strong>
+
+                <p>
+                    Sisi miring dan satu sisi diketahui.
+                </p>
+
+                <div class="math">
+                    a = √(c<sup>2</sup> − b<sup>2</sup>)
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>4. Menentukan Sisi Miring</h3>
 
         <p>
             Jika kedua sisi siku-siku diketahui:
@@ -497,7 +694,7 @@ input,select{
             Jadi sisi miringnya adalah <strong>5</strong>.
         </div>
 
-        <h3>3. Menentukan Sisi Siku-Siku</h3>
+        <h3>5. Menentukan Sisi Siku-Siku</h3>
 
         <p>
             Jika sisi miring dan salah satu sisi siku-siku diketahui:
@@ -525,12 +722,54 @@ input,select{
             Jadi sisi yang belum diketahui adalah <strong>12</strong>.
         </div>
 
-        <h3>4. Tripel Pythagoras</h3>
+        <h3>6. Langkah Mengerjakan Soal</h3>
+
+        <div class="step">
+            <div class="step-number">1</div>
+            <div>
+                <strong>Tentukan sisi yang dicari.</strong>
+                <br>
+                Apakah sisi miring atau sisi siku-siku?
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <div>
+                <strong>Tuliskan rumus.</strong>
+                <br>
+                Gunakan hubungan Pythagoras yang sesuai.
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <div>
+                <strong>Masukkan angka.</strong>
+                <br>
+                Hitung kuadrat setiap sisi.
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <div>
+                <strong>Hitung akar.</strong>
+                <br>
+                Periksa kembali apakah jawabannya masuk akal.
+            </div>
+        </div>
+
+        <h3>7. Tripel Pythagoras</h3>
 
         <p>
             Tripel Pythagoras adalah tiga bilangan positif yang memenuhi
-            hubungan Pythagoras.
+            hubungan:
         </p>
+
+        <div class="math">
+            a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>
+        </div>
 
         <div class="math">
             3, 4, 5
@@ -542,9 +781,13 @@ input,select{
             8, 15, 17
             <br>
             7, 24, 25
+            <br>
+            9, 40, 41
+            <br>
+            20, 21, 29
         </div>
 
-        <h3>5. Kebalikan Teorema Pythagoras</h3>
+        <h3>8. Kebalikan Teorema Pythagoras</h3>
 
         <p>
             Jika tiga sisi suatu segitiga memenuhi:
@@ -558,11 +801,7 @@ input,select{
             maka segitiga tersebut merupakan segitiga siku-siku.
         </p>
 
-        <h3>6. Penerapan dalam Kehidupan</h3>
-
-        <p>
-            Teorema Pythagoras dapat digunakan untuk menentukan:
-        </p>
+        <h3>9. Penerapan dalam Kehidupan</h3>
 
         <ul>
             <li>panjang tangga yang bersandar pada dinding;</li>
@@ -576,12 +815,13 @@ input,select{
 
         <h3>🎯 Latihan Pythagoras</h3>
 
-        <p>
-            Latihan dibuat secara acak dan tidak dibatasi waktu.
-        </p>
+        <div class="info">
+            Latihan terdiri dari <strong>20 soal acak</strong> dan
+            <strong>tidak dibatasi waktu</strong>.
+        </div>
 
         <button onclick="mulaiLatihanPythagoras()">
-            Mulai Latihan
+            🎯 Mulai Latihan
         </button>
 
         <button onclick="bukaFormTes('Teorema Pythagoras', bankTesPythagoras)">
@@ -595,7 +835,8 @@ input,select{
 </section>
 
 
-<!-- BENTUK AKAR -->
+<!-- ================= BENTUK AKAR ================= -->
+
 <section id="akar" class="page hidden">
 
     <div class="card">
@@ -621,7 +862,8 @@ input,select{
 </section>
 
 
-<!-- PLDV -->
+<!-- ================= PLDV ================= -->
+
 <section id="pldv" class="page hidden">
 
     <div class="card">
@@ -645,7 +887,8 @@ input,select{
 </section>
 
 
-<!-- FORM TES -->
+<!-- ================= FORM TES ================= -->
+
 <section id="formTes" class="page hidden">
 
     <div class="card">
@@ -655,11 +898,22 @@ input,select{
         <h2>📝 Data Peserta Tes</h2>
 
         <div class="info">
+
             Materi Tes:
             <strong id="materiForm"></strong>
+
+            <br><br>
+
+            <strong>20 soal • 40 menit</strong>
+
+            <br>
+
+            5 soal mudah • 10 soal sedang • 5 soal sulit
+
         </div>
 
         <label>Nama Lengkap</label>
+
         <input
             type="text"
             id="namaSiswa"
@@ -669,13 +923,16 @@ input,select{
         <label>Kelas</label>
 
         <select id="kelasSiswa">
+
             <option value="">-- Pilih Kelas --</option>
+
             <option value="8A">8A</option>
             <option value="8B">8B</option>
             <option value="8C">8C</option>
             <option value="8D">8D</option>
             <option value="8E">8E</option>
             <option value="8F">8F</option>
+
         </select>
 
         <button onclick="mulaiTes()">
@@ -687,7 +944,8 @@ input,select{
 </section>
 
 
-<!-- HALAMAN TES -->
+<!-- ================= HALAMAN TES ================= -->
+
 <section id="halamanTes" class="page hidden">
 
     <div class="card">
@@ -696,22 +954,31 @@ input,select{
             ⏱️ 40:00
         </div>
 
-        <h2 id="judulTes">Tes Kemampuan</h2>
+        <h2 id="judulTes">
+            Tes Kemampuan
+        </h2>
 
         <div class="info">
             <span id="infoTes"></span>
         </div>
 
         <div class="progress-wrap">
-            <div class="progress" id="progressTes"></div>
+
+            <div
+                class="progress"
+                id="progressTes">
+            </div>
+
         </div>
 
         <div id="soalTesContainer"></div>
 
         <div class="center">
+
             <button onclick="soalBerikutnya()">
                 Soal Berikutnya →
             </button>
+
         </div>
 
     </div>
@@ -719,7 +986,8 @@ input,select{
 </section>
 
 
-<!-- HASIL TES -->
+<!-- ================= HASIL TES ================= -->
+
 <section id="hasilTes" class="page hidden">
 
     <div class="card center">
@@ -738,9 +1006,13 @@ input,select{
 
 
 <div class="footer">
+
     MATIKA 8 • Hendra Sudrajat, S.Pd.
+
     <br>
+
     SMP Negeri 3 Sindangkerta • Kabupaten Bandung Barat
+
 </div>
 
 </div>
@@ -748,9 +1020,9 @@ input,select{
 
 <script>
 
-/* =========================
+/* =====================================================
    NAVIGASI
-========================= */
+===================================================== */
 
 const halaman = [
     "home",
@@ -766,11 +1038,14 @@ const halaman = [
 function sembunyikanSemua(){
 
     halaman.forEach(function(id){
-        const el = document.getElementById(id);
+
+        const el =
+            document.getElementById(id);
 
         if(el){
             el.classList.add("hidden");
         }
+
     });
 
 }
@@ -779,11 +1054,15 @@ function buka(id){
 
     sembunyikanSemua();
 
-    const el = document.getElementById(id);
+    const el =
+        document.getElementById(id);
 
     if(el){
+
         el.classList.remove("hidden");
+
         window.scrollTo(0,0);
+
     }
 
 }
@@ -797,9 +1076,9 @@ function home(){
 }
 
 
-/* =========================
+/* =====================================================
    RANDOM
-========================= */
+===================================================== */
 
 function acak(arr){
 
@@ -997,7 +1276,8 @@ let skorLatihanEksponen = 0;
 
 function mulaiLatihanEksponen(){
 
-    latihanEksponenAcak = acak(bankLatihanEksponen);
+    latihanEksponenAcak =
+        acak(bankLatihanEksponen);
 
     indexLatihanEksponen = 0;
 
@@ -1012,42 +1292,56 @@ function tampilLatihanEksponen(){
     const container =
         document.getElementById("latihanEksponen");
 
-    if(indexLatihanEksponen >= latihanEksponenAcak.length){
+    if(indexLatihanEksponen >=
+       latihanEksponenAcak.length){
+
+        const nilai =
+            Math.round(
+                skorLatihanEksponen /
+                latihanEksponenAcak.length *
+                100
+            );
 
         container.innerHTML = `
+
             <div class="success">
+
                 <h3>Latihan selesai 🎉</h3>
+
                 <p>
                     Jawaban benar:
                     <strong>${skorLatihanEksponen}</strong>
                     dari
                     <strong>${latihanEksponenAcak.length}</strong>
                 </p>
+
                 <p>
                     Nilai:
-                    <strong>
-                    ${Math.round(
-                        skorLatihanEksponen /
-                        latihanEksponenAcak.length *
-                        100
-                    )}
-                    </strong>
+                    <strong>${nilai}</strong>
                 </p>
 
                 <button onclick="mulaiLatihanEksponen()">
                     🔄 Latihan Lagi
                 </button>
+
             </div>
+
         `;
 
         return;
+
     }
 
-    const q = latihanEksponenAcak[indexLatihanEksponen];
+    const q =
+        latihanEksponenAcak[
+            indexLatihanEksponen
+        ];
 
-    const pilihan = acak(q.pilihan);
+    const pilihan =
+        acak(q.pilihan);
 
     container.innerHTML = `
+
         <div class="question">
 
             <span class="badge">
@@ -1060,12 +1354,18 @@ function tampilLatihanEksponen(){
             ${pilihan.map(function(p){
 
                 return `
+
                     <button
                         class="option"
-                        onclick="jawabLatihanEksponen(this, '${escapeQuotes(p)}', '${escapeQuotes(q.jawaban)}')"
+                        onclick="jawabLatihanEksponen(
+                            this,
+                            '${escapeQuotes(p)}',
+                            '${escapeQuotes(q.jawaban)}'
+                        )"
                     >
                         ${p}
                     </button>
+
                 `;
 
             }).join("")}
@@ -1073,6 +1373,7 @@ function tampilLatihanEksponen(){
             <div id="feedbackEksponen"></div>
 
         </div>
+
     `;
 
 }
@@ -1085,7 +1386,11 @@ function escapeQuotes(text){
 
 }
 
-function jawabLatihanEksponen(button,pilihan,jawaban){
+function jawabLatihanEksponen(
+    button,
+    pilihan,
+    jawaban
+){
 
     const buttons =
         button.parentElement.querySelectorAll(".option");
@@ -1095,29 +1400,25 @@ function jawabLatihanEksponen(button,pilihan,jawaban){
     });
 
     const feedback =
-        document.getElementById("feedbackEksponen");
+        document.getElementById(
+            "feedbackEksponen"
+        );
 
     if(pilihan === jawaban){
 
         button.classList.add("correct");
 
-        feedback.innerHTML =
-            `<div class="feedback success">
+        feedback.innerHTML = `
+            <div class="feedback success">
                 ✅ Benar!
-            </div>`;
+            </div>
+        `;
 
         skorLatihanEksponen++;
 
     }else{
 
         button.classList.add("wrong");
-
-        feedback.innerHTML =
-            `<div class="feedback warning">
-                ❌ Belum tepat.
-                Jawaban benar:
-                <strong>${jawaban}</strong>
-            </div>`;
 
         buttons.forEach(function(btn){
 
@@ -1126,6 +1427,14 @@ function jawabLatihanEksponen(button,pilihan,jawaban){
             }
 
         });
+
+        feedback.innerHTML = `
+            <div class="feedback warning">
+                ❌ Belum tepat.
+                Jawaban benar:
+                <strong>${jawaban}</strong>
+            </div>
+        `;
 
     }
 
@@ -1659,19 +1968,24 @@ let timerInterval = null;
 let waktuTes = 40 * 60;
 
 let sudahMenjawab = false;
+let tesSudahSelesai = false;
 
 
-/* Membuat 20 soal:
-   5 mudah + 10 sedang + 5 sulit
-*/
+/* =====================================================
+   MEMBUAT 20 SOAL
+   5 MUDAH + 10 SEDANG + 5 SULIT
+===================================================== */
 
 function buatBankTes(bank){
 
-    const mudah = acak(bank.mudah).slice(0,5);
+    const mudah =
+        acak(bank.mudah).slice(0,5);
 
-    const sedang = acak(bank.sedang).slice(0,10);
+    const sedang =
+        acak(bank.sedang).slice(0,10);
 
-    const sulit = acak(bank.sulit).slice(0,5);
+    const sulit =
+        acak(bank.sulit).slice(0,5);
 
     return acak([
         ...mudah,
@@ -1682,6 +1996,10 @@ function buatBankTes(bank){
 }
 
 
+/* =====================================================
+   FORM TES
+===================================================== */
+
 function bukaFormTes(materi,bank){
 
     clearInterval(timerInterval);
@@ -1690,41 +2008,71 @@ function bukaFormTes(materi,bank){
 
     bankAktifTes = bank;
 
-    document.getElementById("materiForm").innerText =
-        materi;
+    document.getElementById(
+        "materiForm"
+    ).innerText = materi;
 
-    document.getElementById("namaSiswa").value = "";
+    document.getElementById(
+        "namaSiswa"
+    ).value = "";
 
-    document.getElementById("kelasSiswa").value = "";
+    document.getElementById(
+        "kelasSiswa"
+    ).value = "";
 
     buka("formTes");
 
 }
 
 
+/* =====================================================
+   MULAI TES
+===================================================== */
+
 function mulaiTes(){
 
     namaTes =
-        document.getElementById("namaSiswa").value.trim();
+        document.getElementById(
+            "namaSiswa"
+        ).value.trim();
 
     kelasTes =
-        document.getElementById("kelasSiswa").value;
+        document.getElementById(
+            "kelasSiswa"
+        ).value;
 
     if(!namaTes){
 
-        alert("Silakan masukkan nama lengkap.");
+        alert(
+            "Silakan masukkan nama lengkap."
+        );
 
         return;
+
     }
 
     if(!kelasTes){
 
-        alert("Silakan pilih kelas.");
+        alert(
+            "Silakan pilih kelas."
+        );
 
         return;
+
     }
 
-    soalTes = buatBankTes(bankAktifTes);
+    if(!bankAktifTes){
+
+        alert(
+            "Bank soal tidak tersedia."
+        );
+
+        return;
+
+    }
+
+    soalTes =
+        buatBankTes(bankAktifTes);
 
     indexTes = 0;
 
@@ -1734,8 +2082,13 @@ function mulaiTes(){
 
     sudahMenjawab = false;
 
-    document.getElementById("judulTes").innerText =
-        "Tes Kemampuan - " + materiAktifTes;
+    tesSudahSelesai = false;
+
+    document.getElementById(
+        "judulTes"
+    ).innerText =
+        "Tes Kemampuan - " +
+        materiAktifTes;
 
     buka("halamanTes");
 
@@ -1746,29 +2099,38 @@ function mulaiTes(){
 }
 
 
+/* =====================================================
+   TIMER
+===================================================== */
+
 function mulaiTimer(){
 
     clearInterval(timerInterval);
 
     updateTimer();
 
-    timerInterval = setInterval(function(){
+    timerInterval =
+        setInterval(function(){
 
-        waktuTes--;
+            waktuTes--;
 
-        updateTimer();
+            updateTimer();
 
-        if(waktuTes <= 0){
+            if(waktuTes <= 0){
 
-            clearInterval(timerInterval);
+                clearInterval(
+                    timerInterval
+                );
 
-            alert("Waktu tes telah habis.");
+                alert(
+                    "Waktu tes telah habis."
+                );
 
-            selesaiTes();
+                selesaiTes();
 
-        }
+            }
 
-    },1000);
+        },1000);
 
 }
 
@@ -1781,7 +2143,9 @@ function updateTimer(){
     const detik =
         waktuTes % 60;
 
-    document.getElementById("timer").innerHTML =
+    document.getElementById(
+        "timer"
+    ).innerHTML =
         "⏱️ " +
         String(menit).padStart(2,"0") +
         ":" +
@@ -1790,33 +2154,47 @@ function updateTimer(){
 }
 
 
+/* =====================================================
+   TAMPIL SOAL TES
+===================================================== */
+
 function tampilSoalTes(){
 
     sudahMenjawab = false;
 
-    const q = soalTes[indexTes];
+    const q =
+        soalTes[indexTes];
 
     const container =
-        document.getElementById("soalTesContainer");
+        document.getElementById(
+            "soalTesContainer"
+        );
 
     const persen =
-        ((indexTes) / soalTes.length) * 100;
+        (indexTes / soalTes.length) * 100;
 
-    document.getElementById("progressTes").style.width =
+    document.getElementById(
+        "progressTes"
+    ).style.width =
         persen + "%";
 
-    document.getElementById("infoTes").innerHTML =
+    document.getElementById(
+        "infoTes"
+    ).innerHTML =
+
         "Peserta: <strong>" +
         namaTes +
         "</strong> • Kelas: <strong>" +
         kelasTes +
         "</strong><br>" +
+
         "Soal " +
         (indexTes+1) +
         " dari " +
         soalTes.length;
 
-    const pilihan = acak(q.pilihan);
+    const pilihan =
+        acak(q.pilihan);
 
     container.innerHTML = `
 
@@ -1831,6 +2209,7 @@ function tampilSoalTes(){
             ${pilihan.map(function(p){
 
                 return `
+
                     <button
                         class="option"
                         data-answer="${escapeQuotes(p)}"
@@ -1838,6 +2217,7 @@ function tampilSoalTes(){
                     >
                         ${p}
                     </button>
+
                 `;
 
             }).join("")}
@@ -1845,10 +2225,15 @@ function tampilSoalTes(){
             <div id="feedbackTes"></div>
 
         </div>
+
     `;
 
 }
 
+
+/* =====================================================
+   JAWAB TES
+===================================================== */
 
 function jawabTes(button){
 
@@ -1858,10 +2243,13 @@ function jawabTes(button){
 
     sudahMenjawab = true;
 
-    const q = soalTes[indexTes];
+    const q =
+        soalTes[indexTes];
 
     const jawabanDipilih =
-        button.getAttribute("data-answer");
+        button.getAttribute(
+            "data-answer"
+        );
 
     const buttons =
         document.querySelectorAll(
@@ -1873,37 +2261,60 @@ function jawabTes(button){
         btn.disabled = true;
 
         const nilai =
-            btn.getAttribute("data-answer");
+            btn.getAttribute(
+                "data-answer"
+            );
 
         if(nilai === q.jawaban){
-            btn.classList.add("correct");
+
+            btn.classList.add(
+                "correct"
+            );
+
         }
 
     });
 
     const feedback =
-        document.getElementById("feedbackTes");
+        document.getElementById(
+            "feedbackTes"
+        );
 
     if(jawabanDipilih === q.jawaban){
 
         benarTes++;
 
         feedback.innerHTML = `
+
             <div class="feedback success">
+
                 ✅ Jawaban benar!
+
             </div>
+
         `;
 
     }else{
 
-        button.classList.add("wrong");
+        button.classList.add(
+            "wrong"
+        );
 
         feedback.innerHTML = `
+
             <div class="feedback warning">
+
                 ❌ Jawaban belum tepat.
+
+                <br>
+
                 Jawaban benar:
-                <strong>${q.jawaban}</strong>
+                <strong>
+                    ${q.jawaban}
+                </strong>
+
             </div>
+
         `;
 
     }
@@ -1911,13 +2322,20 @@ function jawabTes(button){
 }
 
 
+/* =====================================================
+   SOAL BERIKUTNYA
+===================================================== */
+
 function soalBerikutnya(){
 
     if(!sudahMenjawab){
 
-        alert("Pilih salah satu jawaban terlebih dahulu.");
+        alert(
+            "Pilih salah satu jawaban terlebih dahulu."
+        );
 
         return;
+
     }
 
     indexTes++;
@@ -1935,21 +2353,42 @@ function soalBerikutnya(){
 }
 
 
+/* =====================================================
+   SELESAI TES
+===================================================== */
+
 function selesaiTes(){
+
+    if(tesSudahSelesai){
+        return;
+    }
+
+    tesSudahSelesai = true;
 
     clearInterval(timerInterval);
 
-    const jumlah = soalTes.length;
+    const jumlah =
+        soalTes.length;
+
+    if(jumlah === 0){
+        return;
+    }
 
     const nilai =
         Math.round(
-            benarTes / jumlah * 100
+            benarTes /
+            jumlah *
+            100
         );
 
-    document.getElementById("progressTes").style.width =
+    document.getElementById(
+        "progressTes"
+    ).style.width =
         "100%";
 
-    document.getElementById("hasilIsi").innerHTML = `
+    document.getElementById(
+        "hasilIsi"
+    ).innerHTML = `
 
         <div class="success">
 
@@ -2038,7 +2477,9 @@ function kirimHasil(
 
         nilai:nilai,
 
-        waktu:new Date().toLocaleString("id-ID")
+        waktu:new Date().toLocaleString(
+            "id-ID"
+        )
 
     };
 
@@ -2049,7 +2490,8 @@ function kirimHasil(
         mode:"no-cors",
 
         headers:{
-            "Content-Type":"application/json"
+            "Content-Type":
+                "application/json"
         },
 
         body:JSON.stringify(data)
@@ -2058,12 +2500,18 @@ function kirimHasil(
     .then(function(){
 
         const hasil =
-            document.getElementById("hasilIsi");
+            document.getElementById(
+                "hasilIsi"
+            );
 
         hasil.innerHTML += `
+
             <div class="success">
+
                 ✅ Hasil tes telah dikirim.
+
             </div>
+
         `;
 
     })
@@ -2072,13 +2520,19 @@ function kirimHasil(
         console.error(error);
 
         const hasil =
-            document.getElementById("hasilIsi");
+            document.getElementById(
+                "hasilIsi"
+            );
 
         hasil.innerHTML += `
+
             <div class="warning">
-                ⚠️ Tes selesai, tetapi ada kendala
-                saat mengirim hasil.
+
+                ⚠️ Tes selesai, tetapi ada
+                kendala saat mengirim hasil.
+
             </div>
+
         `;
 
     });
@@ -2087,7 +2541,28 @@ function kirimHasil(
 
 
 /* =====================================================
-   LATIHAN PYTHAGORAS
+   DATA TRIPEL PYTHAGORAS
+===================================================== */
+
+const triplePythagoras = [
+
+    [3,4,5],
+    [5,12,13],
+    [6,8,10],
+    [8,15,17],
+    [7,24,25],
+    [9,12,15],
+    [9,40,41],
+    [12,16,20],
+    [12,35,37],
+    [15,20,25],
+    [20,21,29]
+
+];
+
+
+/* =====================================================
+   PEMBUATAN SOAL LATIHAN PYTHAGORAS
 ===================================================== */
 
 function buatSoalLatihanPythagoras(){
@@ -2095,180 +2570,234 @@ function buatSoalLatihanPythagoras(){
     const tipe =
         angkaAcak(1,5);
 
-    let a,b,c,jawaban,soal,pilihan;
+    let triple;
+    let a;
+    let b;
+    let c;
+    let jawaban;
+    let soal;
+    let pilihan;
+
+
+    /* ==========================================
+       TIPE 1
+       MENCARI SISI MIRING
+    ========================================== */
 
     if(tipe === 1){
 
-        const triple = [
-            [3,4,5],
-            [5,12,13],
-            [6,8,10],
-            [8,15,17],
-            [7,24,25]
-        ];
-
-        const t =
-            triple[
-                angkaAcak(0,triple.length-1)
+        triple =
+            triplePythagoras[
+                angkaAcak(
+                    0,
+                    triplePythagoras.length-1
+                )
             ];
 
-        a=t[0];
-        b=t[1];
-        c=t[2];
+        a = triple[0];
+        b = triple[1];
+        c = triple[2];
 
         soal =
             `Segitiga siku-siku memiliki sisi siku-siku
-             ${a} cm dan ${b} cm.
-             Panjang sisi miringnya adalah ...`;
+            ${a} cm dan ${b} cm.
+            Panjang sisi miringnya adalah ...`;
 
-        jawaban = c + " cm";
+        jawaban =
+            c + " cm";
 
-        pilihan = acak([
-            c+" cm",
-            (c+1)+" cm",
-            (c+2)+" cm",
-            (c-1)+" cm"
-        ]);
+        pilihan =
+            acak([
+                c + " cm",
+                (c+1) + " cm",
+                (c+2) + " cm",
+                Math.max(1,c-1) + " cm"
+            ]);
 
-    }else if(tipe === 2){
+    }
 
-        const triple = [
-            [3,4,5],
-            [5,12,13],
-            [6,8,10],
-            [8,15,17]
-        ];
 
-        const t =
-            triple[
-                angkaAcak(0,triple.length-1)
+    /* ==========================================
+       TIPE 2
+       MENCARI SISI SIKU-SIKU
+    ========================================== */
+
+    else if(tipe === 2){
+
+        triple =
+            triplePythagoras[
+                angkaAcak(
+                    0,
+                    triplePythagoras.length-1
+                )
             ];
 
-        a=t[0];
-        b=t[1];
-        c=t[2];
+        a = triple[0];
+        b = triple[1];
+        c = triple[2];
 
         soal =
             `Jika sisi miring segitiga siku-siku
-             ${c} cm dan salah satu sisi ${a} cm,
-             maka sisi lainnya adalah ...`;
+            ${c} cm dan salah satu sisi ${a} cm,
+            maka sisi lainnya adalah ...`;
 
-        jawaban = b + " cm";
+        jawaban =
+            b + " cm";
 
-        pilihan = acak([
-            b+" cm",
-            (b+1)+" cm",
-            (b+2)+" cm",
-            (b-1)+" cm"
-        ]);
+        pilihan =
+            acak([
+                b + " cm",
+                (b+1) + " cm",
+                (b+2) + " cm",
+                Math.max(1,b-1) + " cm"
+            ]);
 
-    }else if(tipe === 3){
+    }
 
-        const panjang =
-            angkaAcak(3,12);
 
-        const lebar =
-            angkaAcak(3,12);
+    /* ==========================================
+       TIPE 3
+       DIAGONAL PERSEGI PANJANG
+    ========================================== */
 
-        const diagonal =
-            Math.sqrt(
-                panjang*panjang +
-                lebar*lebar
-            );
+    else if(tipe === 3){
 
-        if(!Number.isInteger(diagonal)){
+        triple =
+            triplePythagoras[
+                angkaAcak(
+                    0,
+                    triplePythagoras.length-1
+                )
+            ];
 
-            return buatSoalLatihanPythagoras();
-
-        }
+        a = triple[0];
+        b = triple[1];
+        c = triple[2];
 
         soal =
             `Sebuah persegi panjang memiliki panjang
-             ${panjang} cm dan lebar ${lebar} cm.
-             Panjang diagonalnya adalah ...`;
+            ${a} cm dan lebar ${b} cm.
+            Panjang diagonalnya adalah ...`;
 
-        jawaban = diagonal + " cm";
+        jawaban =
+            c + " cm";
 
-        pilihan = acak([
-            diagonal+" cm",
-            (diagonal+1)+" cm",
-            (diagonal+2)+" cm",
-            (diagonal-1)+" cm"
-        ]);
+        pilihan =
+            acak([
+                c + " cm",
+                (c+1) + " cm",
+                (c+2) + " cm",
+                Math.max(1,c-1) + " cm"
+            ]);
 
-    }else if(tipe === 4){
+    }
 
-        const triple = [
-            [3,4,5],
-            [5,12,13],
-            [8,15,17],
-            [7,24,25]
-        ];
 
-        const t =
-            triple[
-                angkaAcak(0,triple.length-1)
+    /* ==========================================
+       TIPE 4
+       TRIPEL PYTHAGORAS
+    ========================================== */
+
+    else if(tipe === 4){
+
+        triple =
+            triplePythagoras[
+                angkaAcak(
+                    0,
+                    triplePythagoras.length-1
+                )
             ];
+
+        jawaban =
+            `${triple[0]}, ${triple[1]}, ${triple[2]}`;
 
         soal =
             `Manakah yang merupakan tripel Pythagoras?`;
 
-        jawaban =
-            `${t[0]}, ${t[1]}, ${t[2]}`;
+        const salah1 =
+            `${triple[0]}, ${triple[1]}, ${triple[2]+1}`;
 
-        pilihan = acak([
-            jawaban,
-            `${t[0]}, ${t[1]}, ${t[2]+1}`,
-            `${t[0]+1}, ${t[1]}, ${t[2]}`,
-            `${t[0]}, ${t[1]+1}, ${t[2]}`
-        ]);
+        const salah2 =
+            `${triple[0]+1}, ${triple[1]}, ${triple[2]}`;
 
-    }else{
+        const salah3 =
+            `${triple[0]}, ${triple[1]+1}, ${triple[2]}`;
 
-        const a1 =
-            angkaAcak(3,10);
-
-        const b1 =
-            angkaAcak(3,10);
-
-        const c1 =
-            Math.sqrt(
-                a1*a1+b1*b1
-            );
-
-        if(!Number.isInteger(c1)){
-
-            return buatSoalLatihanPythagoras();
-
-        }
-
-        soal =
-            `Jika a = ${a1} cm dan b = ${b1} cm,
-             maka nilai c adalah ...`;
-
-        jawaban = c1 + " cm";
-
-        pilihan = acak([
-            c1+" cm",
-            (c1+1)+" cm",
-            (c1+2)+" cm",
-            (c1-1)+" cm"
-        ]);
+        pilihan =
+            acak([
+                jawaban,
+                salah1,
+                salah2,
+                salah3
+            ]);
 
     }
 
+
+    /* ==========================================
+       TIPE 5
+       MENCARI C DARI TRIPEL
+    ========================================== */
+
+    else{
+
+        triple =
+            triplePythagoras[
+                angkaAcak(
+                    0,
+                    triplePythagoras.length-1
+                )
+            ];
+
+        a = triple[0];
+        b = triple[1];
+        c = triple[2];
+
+        soal =
+            `Jika a = ${a} cm dan b = ${b} cm,
+            maka nilai c adalah ...`;
+
+        jawaban =
+            c + " cm";
+
+        pilihan =
+            acak([
+                c + " cm",
+                (c+1) + " cm",
+                (c+2) + " cm",
+                Math.max(1,c-1) + " cm"
+            ]);
+
+    }
+
+
     return {
+
         soal:soal,
+
         pilihan:pilihan,
+
         jawaban:jawaban
+
     };
 
 }
 
 
+/* =====================================================
+   VARIABEL LATIHAN PYTHAGORAS
+===================================================== */
+
 let soalLatihanPythagoras = [];
+
 let indexLatihanPythagoras = 0;
+
 let skorLatihanPythagoras = 0;
+
+
+/* =====================================================
+   MULAI LATIHAN PYTHAGORAS
+===================================================== */
 
 function mulaiLatihanPythagoras(){
 
@@ -2291,43 +2820,58 @@ function mulaiLatihanPythagoras(){
 }
 
 
+/* =====================================================
+   TAMPIL LATIHAN PYTHAGORAS
+===================================================== */
+
 function tampilLatihanPythagoras(){
 
     const container =
-        document.getElementById("latihanPythagoras");
+        document.getElementById(
+            "latihanPythagoras"
+        );
 
-    if(indexLatihanPythagoras >=
-       soalLatihanPythagoras.length){
+    if(
+        indexLatihanPythagoras >=
+        soalLatihanPythagoras.length
+    ){
+
+        const nilai =
+            Math.round(
+                skorLatihanPythagoras /
+                soalLatihanPythagoras.length *
+                100
+            );
 
         container.innerHTML = `
 
             <div class="success">
 
-                <h3>🎉 Latihan selesai!</h3>
+                <h3>
+                    🎉 Latihan selesai!
+                </h3>
 
                 <p>
                     Benar:
                     <strong>
-                    ${skorLatihanPythagoras}
+                        ${skorLatihanPythagoras}
                     </strong>
                     dari
                     <strong>
-                    ${soalLatihanPythagoras.length}
+                        ${soalLatihanPythagoras.length}
                     </strong>
                 </p>
 
                 <p>
                     Nilai:
                     <strong>
-                    ${Math.round(
-                        skorLatihanPythagoras /
-                        soalLatihanPythagoras.length *
-                        100
-                    )}
+                        ${nilai}
                     </strong>
                 </p>
 
-                <button onclick="mulaiLatihanPythagoras()">
+                <button
+                    onclick="mulaiLatihanPythagoras()"
+                >
                     🔄 Latihan Lagi
                 </button>
 
@@ -2336,6 +2880,7 @@ function tampilLatihanPythagoras(){
         `;
 
         return;
+
     }
 
     const q =
@@ -2343,24 +2888,33 @@ function tampilLatihanPythagoras(){
             indexLatihanPythagoras
         ];
 
-    const pilihan = acak(q.pilihan);
+    const pilihan =
+        acak(q.pilihan);
 
     container.innerHTML = `
 
         <div class="question">
 
             <span class="badge">
-                Soal ${indexLatihanPythagoras+1}
-                dari ${soalLatihanPythagoras.length}
+
+                Soal
+                ${indexLatihanPythagoras+1}
+                dari
+                ${soalLatihanPythagoras.length}
+
             </span>
 
-            <h3>${q.soal}</h3>
+            <h3>
+                ${q.soal}
+            </h3>
 
             ${pilihan.map(function(p){
 
                 return `
+
                     <button
                         class="option"
+                        data-answer="${escapeQuotes(p)}"
                         onclick="jawabLatihanPythagoras(
                             this,
                             '${escapeQuotes(p)}',
@@ -2369,6 +2923,7 @@ function tampilLatihanPythagoras(){
                     >
                         ${p}
                     </button>
+
                 `;
 
             }).join("")}
@@ -2382,6 +2937,10 @@ function tampilLatihanPythagoras(){
 }
 
 
+/* =====================================================
+   JAWAB LATIHAN PYTHAGORAS
+===================================================== */
+
 function jawabLatihanPythagoras(
     button,
     pilihan,
@@ -2389,10 +2948,14 @@ function jawabLatihanPythagoras(
 ){
 
     const buttons =
-        button.parentElement.querySelectorAll(".option");
+        button.parentElement.querySelectorAll(
+            ".option"
+        );
 
     buttons.forEach(function(btn){
+
         btn.disabled = true;
+
     });
 
     const feedback =
@@ -2402,26 +2965,59 @@ function jawabLatihanPythagoras(
 
     if(pilihan === jawaban){
 
-        button.classList.add("correct");
+        button.classList.add(
+            "correct"
+        );
 
         skorLatihanPythagoras++;
 
         feedback.innerHTML = `
+
             <div class="feedback success">
+
                 ✅ Benar!
+
             </div>
+
         `;
 
     }else{
 
-        button.classList.add("wrong");
+        button.classList.add(
+            "wrong"
+        );
+
+        buttons.forEach(function(btn){
+
+            if(
+                btn.getAttribute(
+                    "data-answer"
+                ) === jawaban
+            ){
+
+                btn.classList.add(
+                    "correct"
+                );
+
+            }
+
+        });
 
         feedback.innerHTML = `
+
             <div class="feedback warning">
+
                 ❌ Belum tepat.
+
+                <br>
+
                 Jawaban benar:
-                <strong>${jawaban}</strong>
+                <strong>
+                    ${jawaban}
+                </strong>
+
             </div>
+
         `;
 
     }
@@ -2437,9 +3033,9 @@ function jawabLatihanPythagoras(
 }
 
 
-/* =========================
+/* =====================================================
    AWAL
-========================= */
+===================================================== */
 
 buka("home");
 
